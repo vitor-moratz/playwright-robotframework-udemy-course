@@ -1,14 +1,25 @@
 name: Testes em Robot Framework com Actions do GitHub
-run-name: On Push - Web Tests Run
-on: [push]
+run-name: Testes referente ao curso da May Fernandes pela Udemy
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        type: string
+        description: Qual é a TAG a ser executada?
+        required: true
 
 jobs:
   web-tests:
     runs-on: ubuntu-20.04
+    permissions: write-all
+    strategy:
+      matrix:
+        browser: [chromium, firefox, webkit]
+      fail-fast: false
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-
+ 
       - name: Install Python 3.10
         uses: actions/setup-python@v4
         with:
@@ -27,19 +38,20 @@ jobs:
           sudo npx playwright install-deps
           rfbrowser init
 
-      - name: Executando testes em Robot Framework
+      - name: Executando os testes com Actions do GitHub
         run: |
-          robot -d ./results -v HEADLESS:true -v BROWSER:chromium tests
-      
+          robot -d ./results -v HEADLESS:true \
+          -v BROWSER:${{ matrix.browser }} -i ${{ inputs.tag }} tests
+
       - name: Upload Tests Results
         if: always()
         uses: actions/upload-artifact@v3
-        with: 
-          name: results-chromium
+        with:
+          name: results-${{ matrix.browser }}
           path: ./results
           if-no-files-found: ignore
           retention-days: 2
-        
+
       - name: Download Tests Results
         if: always()
         uses: actions/download-artifact@v1
