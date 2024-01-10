@@ -33,7 +33,7 @@ Preencher os dados do novo usuário e cadastrar
     Click       css=a[data-testid='cadastrar']
     ${EMAIL}    FakerLibrary.Email
     Set Suite Variable    ${EMAIL}
-    Fill Text   css=input[data-testid='nome']       Mayara Fernandes
+    Fill Text   css=input[data-testid='nome']       Vitor Morato
     Fill Text   css=input[data-testid='email']      ${EMAIL}
     Fill Text   css=input[data-testid='password']   123456
     Check Checkbox  css=input[data-testid='checkbox']
@@ -42,7 +42,7 @@ Preencher os dados do novo usuário e cadastrar
 
 Conferir usuário cadastrado com sucesso
     Wait For Elements State    h1   visible
-    Get Text    h1  ==  Bem Vindo Mayara Fernandes
+    Get Text    h1  ==  Bem Vindo Vitor Morato
     Get Element States    css=button[data-testid='logout']  validate  value & visible
 
 Cadastrar novo usuário
@@ -56,7 +56,7 @@ Acessar a Lista de usuários
 
 Conferir que o usuário aparece na listagem
     ${elemento}      Get Table Cell Element    css=table    "Nome"    "${EMAIL}"
-    ${usuario_nome}  Get Text  ${elemento}  ==  Mayara Fernandes
+    ${usuario_nome}  Get Text  ${elemento}  ==  Vitor Morato
     Highlight Elements    ${elemento}
     Take Screenshot       fullPage=${true}
 
@@ -82,7 +82,7 @@ Criar usuário via API
 
     ${resposta}  Http    url=https://serverest.dev/usuarios
     ...                  method=POST
-    ...                  body={"nome": "Mayara Fernandes","email": "${EMAIL}","password": "123456","administrador": "true"}   
+    ...                  body={"nome": "Vitor Morato","email": "${EMAIL}","password": "123456","administrador": "true"}   
 
     Should Be Equal As Integers    ${resposta["status"]}    201
 
@@ -95,7 +95,7 @@ Logar com o usuário cadastrado via API
 
     LocalStorage Set Item    serverest/userEmail    ${EMAIL}
     LocalStorage Set Item    serverest/userToken    ${resposta["body"]["authorization"]}
-    LocalStorage Set Item    serverest/userNome     Mayara Fernandes
+    LocalStorage Set Item    serverest/userNome     Vitor Morato
 
     Go To    url=https://front.serverest.dev/admin/home
 
@@ -115,5 +115,5 @@ Abrir o Site Serve Rest Front Logado
     New Context    viewport={'width': 1200, 'height': 800}
     ...            storageState=${STORAGE_FILE}
     New Page       url=https://front.serverest.dev/admin/home
-    Get Text       h1  ==  Bem Vindo Mayara Fernandes
+    Get Text       h1  ==  Bem Vindo Vitor Morato
     Take Screenshot
