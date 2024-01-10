@@ -1,0 +1,9 @@
+name: Testes em Robot Framework em Actions do GitHub
+run-name: On Push - Web Tests Run
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-20.04
+    steps:
+      - run: echo "Hello World!"
