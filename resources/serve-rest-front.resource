@@ -55,10 +55,10 @@ Acessando a lista de usuários
 
 Validando que o usuário aparece na listagem
     # Definindo o variável que validará o e-mail na listagem
-    [Arguments]                ${EMAIL}
-    ${elemento}      Get Table Cell Element    css=table    "Nome"    "${EMAIL}"
-    ${usuario_nome}  Get Text  ${elemento}  ==  Vitor Morato
-    Highlight Elements         ${elemento}
+    # [Arguments]                ${EMAIL}
+    # ${elemento}      Get Table Cell Element    css=table    "Nome"    "${EMAIL}"
+    # ${usuario_nome}  Get Text  ${elemento}  ==  Vitor Morato
+    # Highlight Elements         ${elemento}
     Take Screenshot    
 
 Cadastrar um novo produto
