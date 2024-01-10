@@ -30,3 +30,8 @@ jobs:
       - name: Executando testes em Robot Framework
         run: |
           robot -d ./results -v HEADLESS:true -v BROWSER:chromium tests
+      
+      - name: Upload Tests Results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with: 

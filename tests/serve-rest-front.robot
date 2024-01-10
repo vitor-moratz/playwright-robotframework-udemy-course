@@ -1,7 +1,7 @@
 *** Settings ***
-Resource              ../resources/serve-rest-front.resource
-Suite Setup           Cadastrando um novo usuário
-Suite Teardown        Close Browser     ALL
+Resource             ../resources/serve-rest-front.resource
+Suite Setup          Cadastrar Usuário e Logar
+Suite Teardown       Close Browser     ALL
 
 
 *** Test Cases ***
@@ -12,12 +12,12 @@ Login com sucesso Serve Rest Front
     Conferir usuário cadastrado com sucesso
 
 Desafio: Conferir se o novo usuário é mostrado na listagem de usuários
-    Cadastrando um novo usuário
-    Acessando a lista de usuários
-    Validando que o usuário aparece na listagem        vitor.morato80@gmail.com
+    Abrir o Site Serve Rest Front Logado
+    Acessar a Lista de usuários
+    Conferir que o usuário aparece na listagem
 
-Cadastro e Consulta de Produtos
-    Cadastrando um novo usuário
+Bora praticar mais: Cadastro e Consulta de Produtos
+    Abrir o Site Serve Rest Front Logado
     Cadastrar um novo produto
     Conferir que o produto aparece na listagem
 
@@ -26,3 +26,7 @@ Exemplo utilizando Requisições HTTP
     Ir para o site Serve Rest Front
     Criar usuário via API
     Logar com o usuário cadastrado via API
+
+Exemplo Utilizando o Storage Armazenado no Contexto
+    Abrir o Site Serve Rest Front Logado
+    Acessar a Lista de usuários
