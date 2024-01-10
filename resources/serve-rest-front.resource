@@ -16,8 +16,8 @@ Abrir o navegador
     ${TRACE_NAME}            FakerLibrary.Uuid 4
     ${NOW}                   Get Current Date    result_format=%d-%m-%Y_%H%M%S
     New Context              viewport={'width': 1200, 'height': 800}
-    ...                      tracing=${OUTPUT_DIR}/evidencias/traces/${NOW}/${TRACE_NAME}.zip
-    ...                      recordVideo=${'dir':'${OUTPUT_DIR}/evidencias/videos/${NOW}'}
+    ##...                      tracing=${OUTPUT_DIR}/evidencias/traces/${NOW}/${TRACE_NAME}.zip
+    ##...                      recordVideo=${'dir':'${OUTPUT_DIR}/evidencias/videos/${NOW}'}
 
 Ir para o site Serve Rest Front
     New Page                 url=${SITE_SERVE_REST}
