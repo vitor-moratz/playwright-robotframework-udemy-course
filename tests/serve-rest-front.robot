@@ -1,5 +1,7 @@
 *** Settings ***
-Resource  ../resources/serve-rest-front.resource
+Resource              ../resources/serve-rest-front.resource
+Suite Setup           Cadastrando um novo usuário
+Suite Teardown        Close Browser     ALL
 
 
 *** Test Cases ***
