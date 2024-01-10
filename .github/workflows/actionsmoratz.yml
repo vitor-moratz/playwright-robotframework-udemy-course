@@ -1,13 +1,6 @@
 name: Testes em Robot Framework com Actions do GitHub
 run-name: Testes referente ao curso da May Fernandes pela Udemy
 on:
-  workflow_dispatch:
-    inputs:
-      tag:
-        type: string
-        description: Qual é a TAG a ser executada?
-        required: true
-
 jobs:
   web-tests:
     runs-on: ubuntu-20.04
