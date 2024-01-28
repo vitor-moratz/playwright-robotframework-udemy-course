@@ -1,6 +1,4 @@
-O curso Robot Framework com Playwright e GitHub Actions é uma oportunidade única de aprender a utilizar três ferramentas modernas e poderosas para automação de testes de software:
-
-
+# O curso Robot Framework com Playwright e GitHub Actions é uma oportunidade única de aprender a utilizar três ferramentas modernas e poderosas para automação de testes de software:
 
 O Robot Framework é uma plataforma de automação de testes de software que oferece diversas vantagens, como a possibilidade de criar testes de forma rápida e fácil, através de uma linguagem simples e intuitiva, reusabilidade de código, facilidade de manutenção de testes, geração de relatórios detalhados, além de ser uma ferramenta de código aberto e de fácil aprendizado.
 
